@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    background: radial-gradient(#555 , #000);
+}
+.stars {
+    width: 100%;
+    height: 100%;
+    background-image: url('stars.png');
+    animation: move-stars 10s ease infinite  alternate-reverse;
+}
+.sun {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(#f5c313, #ec7e08);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: calc(-200px / 2);
+    margin-left: calc(-200px / 2);
+    box-shadow: 0 0  200px 30px #c7a419fa;
+    animation: sun-shadow 5s ease 3s infinite  alternate ;
+}
+@keyframes sun-shadow{
+    /* from{ box-shadow: 0 0  200px 30px #c7a419fa; } */       /*يمكن حذف نقطة الانطلاق...أي البداية */
+    to{ box-shadow: 0 0  10px 5px #c7a419fa; }
+}
+.EandM{
+    width: 450px;
+    height: 350px;
+    position: absolute;
+    /* border: solid 1px red; */
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin-top: calc(-350px / 2);
+    margin-left: calc(-450px / 2);
+    animation: move-earth 15s linear infinite reverse;
+}
+.earth{ 
+    background-image: url('earth.png');
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    /* border-radius: 50%; */
+    /* طريقة 1 لوضع الأرض بالمنتصف , هي طريقة الأستاذ*/
+    top: 50%;
+    left: -40px;
+    margin-top: -40px;    
+
+    /*  طريقة 2 لوضع الأرض بالمنتصف , هي طريقتي* /
+    /* left: -40px;
+    margin-top: 135px; */        /*350 - 80 = 270 / 2 = 135*/
+
+}
+@keyframes move-earth {
+    to{ transform: rotate(360deg); }
+}
+.just-moon {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    /* border: solid 1px red; */
+    border-radius: 50%;
+    top: -35px;
+    left: -35px;           /* 150 -80 = 70 / 2 = 35*/
+    animation: move-earth 30s linear infinite reverse;
+}
+@keyframes move-stars{
+    to{ transform: rotate(15deg);}   /* الحل المتعارف عليه والأفضل */
+    /* to{ background-position: 60px 60px;} */  /*حل اخر*/ 
+}
+.moon{
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(#ddd,#888);
+    border-radius: 50%;
+    position: absolute;
+    left: -15px;
+
+    /* طريقة 1 لوضع الأرض بالمنتصف , هي طريقتي */
+    top: 60px;   /* 150 -30 = 120 / 60 */
+
+    /* طريق 2 لوضع القمر بالمنتصف , هي طريقة الأستاذ*/
+    /* left: -15px;
+    margin-top: 50%; */
+}
